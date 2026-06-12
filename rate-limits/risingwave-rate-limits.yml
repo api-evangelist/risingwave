@@ -1,0 +1,52 @@
+---
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: RisingWave
+providerId: risingwave
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Streaming
+  - SQL
+description: >-
+  RisingWave does not publish explicit API rate limits for its PostgreSQL-
+  compatible SQL interface, as it operates as a database rather than a
+  traditional REST API. Throughput is bounded by provisioned compute (RWU)
+  and storage capacity. The MCP server and Cloud CLI are similarly constrained
+  by cluster resources. Connection limits and query concurrency are governed
+  by the RisingWave cluster configuration.
+sources:
+  - https://docs.risingwave.com
+  - https://docs.risingwave.com/cloud/pricing
+headers:
+  retryAfter: Retry-After
+responseCodes:
+  throttled: 429
+limits:
+  - name: SQL Connections
+    scope: org
+    metric: concurrent_connections
+    limit: -1
+    timeFrame: hour
+    note: >-
+      Concurrent connection limit is governed by cluster capacity (RWU). No
+      fixed published limit; scales with provisioned resources.
+  - name: Cloud API Requests
+    scope: key
+    metric: requests_per_minute
+    limit: -1
+    timeFrame: minute
+    note: >-
+      RisingWave Cloud management API rate limits are not publicly documented.
+      Contact RisingWave support for enterprise rate limit details.
+  - name: MCP Server Tools
+    scope: user
+    metric: requests_per_minute
+    limit: -1
+    timeFrame: minute
+    note: >-
+      The MCP server connects to a local or remote RisingWave instance; rate
+      limits are determined by the underlying cluster capacity.

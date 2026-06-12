@@ -1,0 +1,197 @@
+---
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: RisingWave
+providerId: risingwave
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - Streaming
+  - SQL
+  - Database
+  - Cloud
+description: >-
+  RisingWave Cloud offers a 7-day free trial followed by pay-as-you-go Basic,
+  Pro, and Self-Managed plans. Compute is billed per RisingWave Unit (RWU) per
+  hour, where 1 RWU equals 1 vCPU or 4 GB memory (whichever is higher). Storage
+  is charged per GB-month and network transfer is billed separately. The open-
+  source version is free under Apache 2.0 with no cloud billing.
+sources:
+  - https://risingwave.com/pricing/
+  - https://docs.risingwave.com/cloud/pricing
+plans:
+  - id: risingwave-open-source
+    name: Open Source
+    type: free
+    description: >-
+      Full RisingWave engine available under Apache 2.0 license. Self-hosted on
+      any infrastructure. No compute or storage fees. Community support via Slack
+      and GitHub.
+    entries:
+      - label: Core Limit
+        name: core_limit
+        type: quota
+        metric: cores
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Community Support
+        name: community_support
+        type: boolean
+        metric: boolean
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+  - id: risingwave-basic
+    name: Basic
+    type: freemium
+    description: >-
+      Fully hosted on AWS, GCP, or Azure. Includes a 7-day free trial; then
+      pay-as-you-go at $0.227/RWU/hour. Supports up to 64 cores. Core features
+      with standard support.
+    entries:
+      - label: Compute (RWU/hour)
+        name: compute_rwu_hour
+        type: metered
+        metric: RWU-hour
+        limit: -1
+        timeFrame: hour
+        geo: global
+        unit: 1
+        price: '0.2270'
+        userMultiplied: false
+      - label: Storage
+        name: storage_gb_month
+        type: metered
+        metric: GB-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.0299'
+        userMultiplied: false
+      - label: Public Ingress
+        name: network_ingress_gb
+        type: metered
+        metric: GB
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.0700'
+        userMultiplied: false
+      - label: Public Egress
+        name: network_egress_gb
+        type: metered
+        metric: GB
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.1700'
+        userMultiplied: false
+      - label: Max Cores
+        name: max_cores
+        type: quota
+        metric: cores
+        limit: 64
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+  - id: risingwave-pro
+    name: Pro
+    type: paid
+    description: >-
+      Fully hosted or BYOC deployment with no core limits. Available as
+      pay-as-you-go or annual contract. Includes premium features (SSO, log
+      forwarding, time travel queries, serverless), premium support with SLA,
+      elastic disk cache, and advanced connectors.
+    entries:
+      - label: Compute (RWU/hour)
+        name: compute_rwu_hour
+        type: metered
+        metric: RWU-hour
+        limit: -1
+        timeFrame: hour
+        geo: global
+        unit: 1
+        price: 'custom'
+        userMultiplied: false
+      - label: Core Limit
+        name: core_limit
+        type: quota
+        metric: cores
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: SSO
+        name: sso
+        type: boolean
+        metric: boolean
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: SLA
+        name: sla
+        type: boolean
+        metric: boolean
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+  - id: risingwave-self-managed
+    name: Self-Managed
+    type: enterprise
+    description: >-
+      On-premises or Kubernetes deployment with annual contract. No core limits.
+      Includes premium features, premium support with SLA, and quarterly success
+      reviews.
+    entries:
+      - label: Annual Contract
+        name: annual_contract
+        type: boolean
+        metric: boolean
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'custom'
+        userMultiplied: false
+      - label: Core Limit
+        name: core_limit
+        type: quota
+        metric: cores
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Quarterly Success Reviews
+        name: quarterly_reviews
+        type: boolean
+        metric: boolean
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false

@@ -1,0 +1,80 @@
+---
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: RisingWave
+providerId: risingwave
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Streaming
+  - Database
+description: >-
+  FOCUS-aligned FinOps for RisingWave Cloud. Compute is metered in RisingWave
+  Units (RWU-hours), where 1 RWU equals 1 vCPU or 4 GB of memory (whichever is
+  higher). Storage is billed per GB-month. Network transfer (ingress and egress)
+  is billed separately per GB. Monthly bills aggregate all three cost dimensions
+  across all projects.
+sources:
+  - https://risingwave.com/pricing/
+  - https://docs.risingwave.com/cloud/pricing
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: RisingWave
+serviceCategory: Database
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+focusColumns:
+  ServiceName: RisingWave Cloud
+  ServiceCategory: Database
+  ProviderName: RisingWave
+  PublisherName: RisingWave Labs
+  BillingCurrency: USD
+meters:
+  - name: Compute (RWU-hour)
+    unit: RWU-hour
+    aggregation: sum
+    description: >-
+      Billed per RisingWave Unit per hour. 1 RWU = MAX(1 vCPU, Memory GB / 4).
+      Basic plan rate starts at $0.227/RWU/hour.
+  - name: Storage (GB-month)
+    unit: GB-month
+    aggregation: sum
+    description: >-
+      Billed per GB of persisted data per month including tables, materialized
+      views, and internal states. Example rate: $0.0299/GB-month.
+  - name: Network Ingress (GB)
+    unit: GB
+    aggregation: sum
+    description: >-
+      Public network ingress charged per GB transferred. Example rate:
+      $0.07/GB; varies by cloud provider and region.
+  - name: Network Egress (GB)
+    unit: GB
+    aggregation: sum
+    description: >-
+      Public network egress charged per GB transferred. Example rate:
+      $0.17/GB; varies by cloud provider and region.
+principles:
+  - name: Visibility
+    description: >-
+      Track RisingWave Cloud consumption monthly across compute (RWU-hours),
+      storage (GB-month), and network transfer (GB) per project.
+  - name: Optimization
+    description: >-
+      Right-size RWU allocation to workload; pause or scale down idle clusters;
+      monitor materialized view complexity to reduce state size and storage costs.
+  - name: Accountability
+    description: >-
+      Use project-level billing segmentation in RisingWave Cloud to attribute
+      costs to teams or use cases. Review quarterly via Pro/Self-Managed success
+      reviews.

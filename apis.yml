@@ -1,0 +1,113 @@
+---
+aid: risingwave
+name: RisingWave
+description: >-
+  RisingWave is a distributed SQL streaming platform that continuously ingests
+  event streams from Kafka, Kinesis, and other sources, transforms them using
+  PostgreSQL-compatible SQL, and serves low-latency results through incrementally
+  maintained materialized views. It delivers sub-100ms freshness for operational
+  workloads and supports streaming analytics via Apache Iceberg integration with
+  exactly-once semantics. The platform offers a decoupled compute and storage
+  architecture for cost efficiency, with transparent dynamic scaling and instant
+  failure recovery. RisingWave is available as open-source (Apache 2.0), as a
+  managed cloud service (RisingWave Cloud) on AWS, GCP, and Azure, and as a
+  self-managed deployment on Kubernetes.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Streaming
+  - SQL
+  - Database
+  - Real-Time
+  - Kafka
+  - Materialized Views
+  - PostgreSQL
+  - Apache Iceberg
+url: https://raw.githubusercontent.com/api-evangelist/risingwave/refs/heads/main/apis.yml
+created: '2026-06-12'
+modified: '2026-06-12'
+specificationVersion: '0.19'
+apis:
+  - aid: risingwave:sql-api
+    name: RisingWave SQL API
+    description: >-
+      PostgreSQL-compatible SQL interface for ingesting streaming data, defining
+      materialized views, running analytical queries, and managing streaming jobs.
+      Accessible via psql, JDBC, and any PostgreSQL-compatible driver or ORM.
+    humanURL: https://docs.risingwave.com
+    baseURL: https://docs.risingwave.com
+    tags:
+      - SQL
+      - Streaming
+      - PostgreSQL
+      - Materialized Views
+    properties:
+      - type: Documentation
+        url: https://docs.risingwave.com
+      - type: ClientLibraries
+        url: https://docs.risingwave.com/client-libraries/overview
+      - type: PythonSDK
+        url: https://docs.risingwave.com/python-sdk/intro
+  - aid: risingwave:mcp-server
+    name: RisingWave MCP Server
+    description: >-
+      Model Context Protocol server that connects AI agents to running RisingWave
+      instances, exposing over 100 tools for querying, schema inspection, DDL
+      operations, streaming job monitoring, and cluster management. Integrates
+      with VS Code Copilot, Claude Desktop, and other MCP-compatible agents via
+      STDIO and HTTP transports.
+    humanURL: https://risingwave.com/blog/mcp-streaming-database-connect-ai-agents-risingwave/
+    baseURL: https://github.com/risingwavelabs/risingwave-mcp
+    tags:
+      - MCP
+      - AI
+      - Agents
+    properties:
+      - type: Documentation
+        url: https://risingwave.com/blog/mcp-streaming-database-connect-ai-agents-risingwave/
+      - type: GitHubRepository
+        url: https://github.com/risingwavelabs/risingwave-mcp
+  - aid: risingwave:cloud-api
+    name: RisingWave Cloud CLI
+    description: >-
+      The RisingWave Cloud CLI (rwc) provides infrastructure management for
+      RisingWave Cloud, including cluster provisioning, authentication, snapshots,
+      and agent skill installation. Supports install of AI agent skills for
+      Claude Code, Cursor, GitHub Copilot, Windsurf, Gemini CLI, and other tools.
+    humanURL: https://docs.risingwave.com/cloud/install-cli
+    baseURL: https://docs.risingwave.com
+    tags:
+      - CLI
+      - Cloud
+      - Infrastructure
+    properties:
+      - type: Documentation
+        url: https://docs.risingwave.com/cloud/install-cli
+common:
+  - type: Website
+    url: https://risingwave.com/
+  - type: Documentation
+    url: https://docs.risingwave.com
+  - type: GitHubOrganization
+    url: https://github.com/risingwavelabs
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/risingwave
+  - type: X
+    url: https://x.com/RisingWaveLabs
+  - type: Blog
+    url: https://risingwave.com/blog
+  - type: Pricing
+    url: https://risingwave.com/pricing/
+  - type: Changelog
+    url: https://docs.risingwave.com/changelog/release-notes
+  - type: Slack
+    url: https://go.risingwave.com/slack
+  - type: Plans
+    url: plans/risingwave-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/risingwave-rate-limits.yml
+  - type: FinOps
+    url: finops/risingwave-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
