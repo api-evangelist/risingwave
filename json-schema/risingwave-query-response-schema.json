@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/risingwave/main/json-schema/risingwave-query-response-schema.json",
+  "title": "QueryResponse",
+  "description": "Response object returned by the RisingWave Events API /sql endpoint after executing a SQL query.",
+  "type": "object",
+  "required": ["columns", "rows", "rowsAffected"],
+  "properties": {
+    "columns": {
+      "type": "array",
+      "description": "Ordered list of columns in the result set.",
+      "items": {
+        "$ref": "#/$defs/Column"
+      }
+    },
+    "rows": {
+      "type": "array",
+      "description": "Result rows. Each item is an object whose keys are column names.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "rowsAffected": {
+      "type": "integer",
+      "description": "Number of rows returned or affected by the query.",
+      "minimum": 0
+    },
+    "error": {
+      "type": "string",
+      "description": "Error message when the query failed; property is absent on success."
+    }
+  },
+  "$defs": {
+    "Column": {
+      "title": "Column",
+      "description": "Metadata for a single column in a RisingWave query result.",
+      "type": "object",
+      "required": ["name", "type", "isPrimaryKey", "isHidden"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Column name as defined in the schema."
+        },
+        "type": {
+          "type": "string",
+          "description": "SQL data type of the column (e.g. VARCHAR, BIGINT, BOOLEAN, TIMESTAMP)."
+        },
+        "isPrimaryKey": {
+          "type": "boolean",
+          "description": "True when this column is part of the primary key."
+        },
+        "isHidden": {
+          "type": "boolean",
+          "description": "True when this column is a system/hidden column not returned in SELECT *."
+        }
+      }
+    }
+  }
+}

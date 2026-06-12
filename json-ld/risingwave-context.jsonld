@@ -1,0 +1,71 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "rw": "https://risingwave.com/vocab#",
+
+    "RisingWaveAPI": "rw:RisingWaveAPI",
+    "StreamingDatabase": "rw:StreamingDatabase",
+    "MaterializedView": "rw:MaterializedView",
+    "StreamingJob": "rw:StreamingJob",
+    "Source": "rw:Source",
+    "Sink": "rw:Sink",
+    "EventIngestion": "rw:EventIngestion",
+    "QueryResponse": "rw:QueryResponse",
+    "Column": "rw:Column",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "dateModified": "schema:dateModified",
+    "license": "schema:license",
+    "provider": "schema:provider",
+    "documentation": "schema:documentation",
+
+    "isPrimaryKey": {
+      "@id": "rw:isPrimaryKey",
+      "@type": "xsd:boolean"
+    },
+    "isHidden": {
+      "@id": "rw:isHidden",
+      "@type": "xsd:boolean"
+    },
+    "rowsAffected": {
+      "@id": "rw:rowsAffected",
+      "@type": "xsd:integer"
+    },
+    "columns": {
+      "@id": "rw:columns",
+      "@container": "@list"
+    },
+    "rows": {
+      "@id": "rw:rows",
+      "@container": "@list"
+    },
+    "tableName": "rw:tableName",
+    "sqlQuery": "rw:sqlQuery",
+
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+
+  "@graph": [
+    {
+      "@id": "https://risingwave.com",
+      "@type": "schema:Organization",
+      "name": "RisingWave Labs",
+      "url": "https://risingwave.com",
+      "description": "Creators of RisingWave, a distributed SQL streaming platform."
+    },
+    {
+      "@id": "https://docs.risingwave.com",
+      "@type": "RisingWaveAPI",
+      "name": "RisingWave Events API",
+      "description": "HTTP API for event ingestion and SQL query execution on RisingWave instances.",
+      "version": "1.0",
+      "documentation": "https://docs.risingwave.com",
+      "license": "https://www.apache.org/licenses/LICENSE-2.0",
+      "provider": { "@id": "https://risingwave.com" }
+    }
+  ]
+}

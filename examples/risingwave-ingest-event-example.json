@@ -1,0 +1,21 @@
+{
+  "_description": "Example POST /v1/events?name=clickstream — ingest a page-view event into the clickstream table.",
+  "request": {
+    "method": "POST",
+    "url": "/v1/events?name=clickstream",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "user_id": "u-42",
+      "session_id": "s-9871",
+      "event_type": "page_view",
+      "url": "/docs/get-started",
+      "referrer": "https://google.com",
+      "ts": 1717200000000
+    }
+  },
+  "response": {
+    "status": 201
+  }
+}

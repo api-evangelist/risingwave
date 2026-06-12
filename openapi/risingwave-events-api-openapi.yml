@@ -1,0 +1,172 @@
+openapi: 3.0.0
+
+info:
+  title: RisingWave Events API
+  version: "1.0"
+  description: >-
+    HTTP API for real-time event ingestion and SQL query execution against a
+    running RisingWave instance. Supports inserting events into streaming
+    tables and running PostgreSQL-compatible SQL queries.
+  contact:
+    name: RisingWave Labs
+    url: https://risingwave.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+
+externalDocs:
+  description: RisingWave Documentation
+  url: https://docs.risingwave.com
+
+servers:
+  - url: /v1
+    description: Base API path
+
+paths:
+  /events:
+    post:
+      summary: Ingest a new event
+      operationId: ingestEvent
+      description: >-
+        Ingest a JSON event payload into the specified RisingWave table.
+        The target table must exist and the payload keys should correspond
+        to column names.
+      parameters:
+        - in: query
+          name: name
+          schema:
+            type: string
+          required: true
+          description: Name of the table to ingest the event into
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Arbitrary JSON object representing the event payload
+            example:
+              user_id: "u-42"
+              event_type: "page_view"
+              url: "/docs/intro"
+              ts: 1717200000000
+      responses:
+        '201':
+          description: Event ingested successfully
+        '400':
+          description: Bad request — malformed JSON or missing table name
+        '500':
+          description: Internal server error
+
+  /sql:
+    post:
+      summary: Execute a SQL query
+      operationId: executeSQL
+      description: >-
+        Execute a PostgreSQL-compatible SQL statement against the connected
+        RisingWave instance and return the result set.
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+              description: SQL query to be executed
+            example: "SELECT * FROM page_views LIMIT 10;"
+      responses:
+        '200':
+          description: SQL query executed successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResponse"
+              example:
+                columns:
+                  - name: user_id
+                    type: VARCHAR
+                    isPrimaryKey: false
+                    isHidden: false
+                  - name: event_type
+                    type: VARCHAR
+                    isPrimaryKey: false
+                    isHidden: false
+                  - name: url
+                    type: VARCHAR
+                    isPrimaryKey: false
+                    isHidden: false
+                  - name: ts
+                    type: BIGINT
+                    isPrimaryKey: false
+                    isHidden: false
+                rows:
+                  - user_id: "u-42"
+                    event_type: "page_view"
+                    url: "/docs/intro"
+                    ts: 1717200000000
+                rowsAffected: 1
+        '400':
+          description: Bad request — invalid SQL syntax
+        '500':
+          description: Internal server error
+
+  /healthz:
+    get:
+      summary: Health check endpoint
+      operationId: healthCheck
+      description: Returns 200 when the Events API service is healthy and ready to serve requests.
+      responses:
+        '200':
+          description: Service is healthy
+        '503':
+          description: Service unavailable
+
+components:
+  schemas:
+    Column:
+      type: object
+      required:
+        - name
+        - type
+        - isPrimaryKey
+        - isHidden
+      properties:
+        name:
+          type: string
+          description: Name of the column
+        type:
+          type: string
+          description: Data type of the column (e.g. VARCHAR, BIGINT, BOOLEAN)
+        isPrimaryKey:
+          type: boolean
+          description: Whether the column is a primary key
+        isHidden:
+          type: boolean
+          description: Whether the column is hidden from standard queries
+
+    QueryResponse:
+      type: object
+      required:
+        - columns
+        - rows
+        - rowsAffected
+      properties:
+        columns:
+          type: array
+          items:
+            $ref: "#/components/schemas/Column"
+          description: Ordered list of columns in the result set
+        rows:
+          type: array
+          items:
+            type: object
+            description: >-
+              A single result row. Keys are column names; values are the
+              corresponding typed column values.
+          description: Result rows
+        rowsAffected:
+          type: integer
+          format: int32
+          description: Number of rows affected or returned by the query
+        error:
+          type: string
+          description: Error message if the query failed; absent on success

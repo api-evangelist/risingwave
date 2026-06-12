@@ -1,0 +1,72 @@
+---
+vocabulary:
+  - term: Materialized View
+    definition: >-
+      A precomputed query result stored in RisingWave that is incrementally
+      maintained as new streaming data arrives, enabling low-latency reads
+      without re-scanning the full dataset.
+
+  - term: Streaming SQL
+    definition: >-
+      PostgreSQL-compatible SQL extended with streaming-specific constructs
+      such as tumbling/hopping/session windows and watermarks, used to define
+      continuous transformations over event streams.
+
+  - term: Source
+    definition: >-
+      A RisingWave object that connects to an external data stream (e.g. Kafka,
+      Kinesis, Pulsar, PostgreSQL CDC) and continuously ingests new records into
+      the system.
+
+  - term: Sink
+    definition: >-
+      A RisingWave object that pushes processed or aggregated data out to an
+      external system such as Kafka, Apache Iceberg, Elasticsearch, or a
+      relational database.
+
+  - term: Exactly-Once Semantics
+    definition: >-
+      A delivery guarantee ensuring that each event is processed and written
+      to sinks precisely once, even in the face of failures, achieved via
+      two-phase commit or transactional sinks.
+
+  - term: Watermark
+    definition: >-
+      A progress marker in an event stream indicating that no records with a
+      timestamp earlier than the watermark value will arrive, enabling RisingWave
+      to close time windows and emit results.
+
+  - term: Apache Iceberg
+    definition: >-
+      An open table format for huge analytic datasets that RisingWave can write
+      to as a sink, enabling streaming data to land directly in a lakehouse.
+
+  - term: RisingWave Cloud
+    definition: >-
+      The fully managed, multi-cloud (AWS, GCP, Azure) deployment of RisingWave,
+      operated by RisingWave Labs, with cluster provisioning, autoscaling, and
+      observability built in.
+
+  - term: MCP Server
+    definition: >-
+      The Model Context Protocol server bundled with RisingWave that exposes
+      over 100 tools for AI agents to query, inspect schemas, run DDL, and
+      monitor streaming jobs on a live RisingWave instance.
+
+  - term: Events API
+    definition: >-
+      A lightweight HTTP API for RisingWave that allows applications to ingest
+      JSON events into streaming tables and execute SQL queries without using a
+      native PostgreSQL driver.
+
+  - term: Decoupled Compute and Storage
+    definition: >-
+      An architectural pattern in RisingWave where compute nodes (query
+      processing) and storage nodes (state persistence) scale independently,
+      reducing cost for workloads with asymmetric resource demands.
+
+  - term: Incremental Computation
+    definition: >-
+      The technique by which RisingWave updates materialized views by processing
+      only the delta of new or changed records rather than recomputing the full
+      result from scratch on every update.

@@ -1,0 +1,28 @@
+{
+  "_description": "Example POST /v1/sql — query a materialized view for top URLs in the last minute.",
+  "request": {
+    "method": "POST",
+    "url": "/v1/sql",
+    "headers": {
+      "Content-Type": "text/plain"
+    },
+    "body": "SELECT url, COUNT(*) AS views FROM clickstream WHERE ts > NOW() - INTERVAL '1 minute' GROUP BY url ORDER BY views DESC LIMIT 5;"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "columns": [
+        { "name": "url",   "type": "VARCHAR", "isPrimaryKey": false, "isHidden": false },
+        { "name": "views", "type": "BIGINT",  "isPrimaryKey": false, "isHidden": false }
+      ],
+      "rows": [
+        { "url": "/docs/get-started",    "views": 214 },
+        { "url": "/docs/sql-overview",   "views": 187 },
+        { "url": "/blog/streaming-etl",  "views": 132 },
+        { "url": "/pricing",             "views": 98  },
+        { "url": "/docs/kafka-source",   "views": 76  }
+      ],
+      "rowsAffected": 5
+    }
+  }
+}

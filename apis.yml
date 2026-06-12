@@ -26,6 +26,21 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/risingwave/refs/heads/main/apis.yml
 created: '2026-06-12'
 modified: '2026-06-12'
+artifacts:
+  - type: OpenAPI
+    url: openapi/risingwave-events-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/risingwave-query-response-schema.json
+  - type: Examples
+    url: examples/risingwave-ingest-event-example.json
+  - type: Examples
+    url: examples/risingwave-execute-sql-example.json
+  - type: Vocabulary
+    url: vocabulary/risingwave-vocabulary.yml
+  - type: JSONLd
+    url: json-ld/risingwave-context.jsonld
+  - type: BlogFeeds
+    url: blogs/blogs.json
 specificationVersion: '0.19'
 apis:
   - aid: risingwave:sql-api
