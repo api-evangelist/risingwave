@@ -13,7 +13,7 @@ description: >-
   managed cloud service (RisingWave Cloud) on AWS, GCP, and Azure, and as a
   self-managed deployment on Kubernetes.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Streaming
   - SQL
