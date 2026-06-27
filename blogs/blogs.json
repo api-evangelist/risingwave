@@ -2,8 +2,10 @@
   "repo": "risingwave",
   "feeds": [
     {
-      "source": "https://risingwave.com/blog/feed",
-      "error": "HTTPError"
+      "source": "https://risingwave.com/blog",
+      "feed_url": "",
+      "saved": 1,
+      "method": "agent-scrape"
     },
     {
       "source": "https://x.com/RisingWaveLabs",
@@ -13,6 +15,7 @@
       "method": "none"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 17,
+  "fetched": "2026-06-27T13:05:56Z",
+  "agent_pulled": "2026-06-27"
 }

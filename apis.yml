@@ -37,9 +37,9 @@ artifacts:
     url: examples/risingwave-execute-sql-example.json
   - type: Vocabulary
     url: vocabulary/risingwave-vocabulary.yml
-  - type: JSONLd
+  - type: JSONLD
     url: json-ld/risingwave-context.jsonld
-  - type: BlogFeeds
+  - type: BlogFeed
     url: blogs/blogs.json
 specificationVersion: '0.19'
 apis:
@@ -113,7 +113,7 @@ common:
     url: https://risingwave.com/blog
   - type: Pricing
     url: https://risingwave.com/pricing/
-  - type: Changelog
+  - type: ChangeLog
     url: https://docs.risingwave.com/changelog/release-notes
   - type: Slack
     url: https://go.risingwave.com/slack
