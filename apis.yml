@@ -99,6 +99,11 @@ apis:
       - type: Documentation
         url: https://docs.risingwave.com/cloud/install-cli
 common:
+  - type: DomainSecurity
+    url: security/risingwave-domain-security.yml
+  - name: Agent Skills
+    url: https://github.com/risingwavelabs/agent-skills
+    type: AgentSkills
   - type: Website
     url: https://risingwave.com/
   - type: Documentation
