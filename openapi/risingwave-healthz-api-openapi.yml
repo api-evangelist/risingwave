@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+  title: RisingWave Events Healthz API
+  version: '1.0'
+  description: HTTP API for real-time event ingestion and SQL query execution against a running RisingWave instance. Supports inserting events into streaming tables and running PostgreSQL-compatible SQL queries.
+  contact:
+    name: RisingWave Labs
+    url: https://risingwave.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: /v1
+  description: Base API path
+tags:
+- name: Healthz
+paths:
+  /healthz:
+    get:
+      summary: Health check endpoint
+      operationId: healthCheck
+      description: Returns 200 when the Events API service is healthy and ready to serve requests.
+      responses:
+        '200':
+          description: Service is healthy
+        '503':
+          description: Service unavailable
+      tags:
+      - Healthz
+externalDocs:
+  description: RisingWave Documentation
+  url: https://docs.risingwave.com
