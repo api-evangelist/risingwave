@@ -13,7 +13,19 @@ description: >-
   managed cloud service (RisingWave Cloud) on AWS, GCP, and Azure, and as a
   self-managed deployment on Kubernetes.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: true
+  try_now: false
+  public: false
+  label: Freemium (free trial)
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/risingwave.png
 tags:
   - Streaming
   - SQL
@@ -43,61 +55,89 @@ artifacts:
     url: blogs/blogs.json
 specificationVersion: '0.19'
 apis:
-  - aid: risingwave:sql-api
-    name: RisingWave SQL API
-    description: >-
-      PostgreSQL-compatible SQL interface for ingesting streaming data, defining
-      materialized views, running analytical queries, and managing streaming jobs.
-      Accessible via psql, JDBC, and any PostgreSQL-compatible driver or ORM.
-    humanURL: https://docs.risingwave.com
-    baseURL: https://docs.risingwave.com
-    tags:
-      - SQL
-      - Streaming
-      - PostgreSQL
-      - Materialized Views
-    properties:
-      - type: Documentation
-        url: https://docs.risingwave.com
-      - type: ClientLibraries
-        url: https://docs.risingwave.com/client-libraries/overview
-      - type: PythonSDK
-        url: https://docs.risingwave.com/python-sdk/intro
-  - aid: risingwave:mcp-server
-    name: RisingWave MCP Server
-    description: >-
-      Model Context Protocol server that connects AI agents to running RisingWave
-      instances, exposing over 100 tools for querying, schema inspection, DDL
-      operations, streaming job monitoring, and cluster management. Integrates
-      with VS Code Copilot, Claude Desktop, and other MCP-compatible agents via
-      STDIO and HTTP transports.
-    humanURL: https://risingwave.com/blog/mcp-streaming-database-connect-ai-agents-risingwave/
-    baseURL: https://github.com/risingwavelabs/risingwave-mcp
-    tags:
-      - MCP
-      - AI
-      - Agents
-    properties:
-      - type: Documentation
-        url: https://risingwave.com/blog/mcp-streaming-database-connect-ai-agents-risingwave/
-      - type: GitHubRepository
-        url: https://github.com/risingwavelabs/risingwave-mcp
-  - aid: risingwave:cloud-api
-    name: RisingWave Cloud CLI
-    description: >-
-      The RisingWave Cloud CLI (rwc) provides infrastructure management for
-      RisingWave Cloud, including cluster provisioning, authentication, snapshots,
-      and agent skill installation. Supports install of AI agent skills for
-      Claude Code, Cursor, GitHub Copilot, Windsurf, Gemini CLI, and other tools.
-    humanURL: https://docs.risingwave.com/cloud/install-cli
-    baseURL: https://docs.risingwave.com
-    tags:
-      - CLI
-      - Cloud
-      - Infrastructure
-    properties:
-      - type: Documentation
-        url: https://docs.risingwave.com/cloud/install-cli
+- aid: risingwave:sql-api
+  name: RisingWave SQL API
+  description: >-
+    PostgreSQL-compatible SQL interface for ingesting streaming data, defining materialized views, running
+    analytical queries, and managing streaming jobs. Accessible via psql, JDBC, and any PostgreSQL-compatible
+    driver or ORM.
+  humanURL: https://docs.risingwave.com
+  baseURL: https://docs.risingwave.com
+  tags:
+  - SQL
+  - Streaming
+  - PostgreSQL
+  - Materialized Views
+  properties:
+  - type: Documentation
+    url: https://docs.risingwave.com
+  - type: ClientLibraries
+    url: https://docs.risingwave.com/client-libraries/overview
+  - type: PythonSDK
+    url: https://docs.risingwave.com/python-sdk/intro
+- aid: risingwave:mcp-server
+  name: RisingWave MCP Server
+  description: >-
+    Model Context Protocol server that connects AI agents to running RisingWave instances, exposing over
+    100 tools for querying, schema inspection, DDL operations, streaming job monitoring, and cluster management.
+    Integrates with VS Code Copilot, Claude Desktop, and other MCP-compatible agents via STDIO and HTTP
+    transports.
+  humanURL: https://risingwave.com/blog/mcp-streaming-database-connect-ai-agents-risingwave/
+  baseURL: https://github.com/risingwavelabs/risingwave-mcp
+  tags:
+  - MCP
+  - AI
+  - Agents
+  properties:
+  - type: Documentation
+    url: https://risingwave.com/blog/mcp-streaming-database-connect-ai-agents-risingwave/
+  - type: GitHubRepository
+    url: https://github.com/risingwavelabs/risingwave-mcp
+- aid: risingwave:cloud-api
+  name: RisingWave Cloud CLI
+  description: >-
+    The RisingWave Cloud CLI (rwc) provides infrastructure management for RisingWave Cloud, including
+    cluster provisioning, authentication, snapshots, and agent skill installation. Supports install of
+    AI agent skills for Claude Code, Cursor, GitHub Copilot, Windsurf, Gemini CLI, and other tools.
+  humanURL: https://docs.risingwave.com/cloud/install-cli
+  baseURL: https://docs.risingwave.com
+  tags:
+  - CLI
+  - Cloud
+  - Infrastructure
+  properties:
+  - type: Documentation
+    url: https://docs.risingwave.com/cloud/install-cli
+- aid: risingwave:risingwave-events-api
+  name: RisingWave Events API
+  description: The Events API from RisingWave — 1 operation(s) for events.
+  humanURL: https://docs.risingwave.com
+  baseURL: https://docs.risingwave.com
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/risingwave-events-api-openapi.yml
+- aid: risingwave:risingwave-healthz-api
+  name: RisingWave Healthz API
+  description: The Healthz API from RisingWave — 1 operation(s) for healthz.
+  humanURL: https://docs.risingwave.com
+  baseURL: https://docs.risingwave.com
+  tags:
+  - Healthz
+  properties:
+  - type: OpenAPI
+    url: openapi/risingwave-healthz-api-openapi.yml
+- aid: risingwave:risingwave-sql-api
+  name: RisingWave Sql API
+  description: The Sql API from RisingWave — 1 operation(s) for sql.
+  humanURL: https://docs.risingwave.com
+  baseURL: https://docs.risingwave.com
+  tags:
+  - Sql
+  properties:
+  - type: OpenAPI
+    url: openapi/risingwave-sql-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/risingwave-agentic-access.yml
