@@ -1,0 +1,18 @@
+{
+  "provider": "risingwave",
+  "sources": [
+    "risingwave-events-api-openapi.yml",
+    "risingwave-healthz-api-openapi.yml",
+    "risingwave-sql-api-openapi.yml"
+  ],
+  "outputs": [
+    "risingwave-events-api-openapi.yml",
+    "risingwave-healthz-api-openapi.yml",
+    "risingwave-sql-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
