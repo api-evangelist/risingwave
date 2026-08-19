@@ -53,7 +53,7 @@ artifacts:
     url: json-ld/risingwave-context.jsonld
   - type: BlogFeed
     url: blogs/blogs.json
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: risingwave:sql-api
   name: RisingWave SQL API
