@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RisingWave Events API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ingest a new event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/events",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name of the table to ingest the event into"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Ingest a JSON event payload into the specified RisingWave table. The target table must exist and the payload keys should correspond to column names."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

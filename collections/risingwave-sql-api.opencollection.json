@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RisingWave Events Sql API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sql",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute a SQL query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/v1/sql"
+          },
+          "docs": "Execute a PostgreSQL-compatible SQL statement against the connected RisingWave instance and return the result set."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
