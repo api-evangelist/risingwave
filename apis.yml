@@ -86,6 +86,10 @@ apis:
   baseURL: https://github.com/risingwavelabs/risingwave-mcp
   tags:
   - MCP
+  - Artificial Intelligence
+  - Agents
+  tags_raw:
+  - MCP
   - AI
   - Agents
   properties:
@@ -114,6 +118,8 @@ apis:
   humanURL: https://docs.risingwave.com
   baseURL: https://docs.risingwave.com
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -134,6 +140,8 @@ apis:
   humanURL: https://docs.risingwave.com
   baseURL: https://docs.risingwave.com
   tags:
+  - SQL
+  tags_raw:
   - Sql
   properties:
   - type: OpenAPI
