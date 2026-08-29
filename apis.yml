@@ -13,6 +13,19 @@ description: >-
   managed cloud service (RisingWave Cloud) on AWS, GCP, and Azure, and as a
   self-managed deployment on Kubernetes.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
@@ -147,6 +160,8 @@ apis:
   - type: OpenAPI
     url: openapi/risingwave-sql-api-openapi.yml
 common:
+  - type: IssueTracker
+    url: https://github.com/risingwavelabs/risingwave-mcp/issues
   - type: AgenticAccess
     url: agentic-access/risingwave-agentic-access.yml
   - type: DomainSecurity
