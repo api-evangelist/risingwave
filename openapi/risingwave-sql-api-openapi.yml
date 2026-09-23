@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: RisingWave Events Sql API
   version: '1.0'
@@ -13,7 +13,7 @@ servers:
 - url: /v1
   description: Base API path
 tags:
-- name: Sql
+- name: sql
 paths:
   /sql:
     post:
@@ -64,29 +64,9 @@ paths:
         '500':
           description: Internal server error
       tags:
-      - Sql
+      - sql
 components:
   schemas:
-    Column:
-      type: object
-      required:
-      - name
-      - type
-      - isPrimaryKey
-      - isHidden
-      properties:
-        name:
-          type: string
-          description: Name of the column
-        type:
-          type: string
-          description: Data type of the column (e.g. VARCHAR, BIGINT, BOOLEAN)
-        isPrimaryKey:
-          type: boolean
-          description: Whether the column is a primary key
-        isHidden:
-          type: boolean
-          description: Whether the column is hidden from standard queries
     QueryResponse:
       type: object
       required:
@@ -112,6 +92,26 @@ components:
         error:
           type: string
           description: Error message if the query failed; absent on success
+    Column:
+      type: object
+      required:
+      - name
+      - type
+      - isPrimaryKey
+      - isHidden
+      properties:
+        name:
+          type: string
+          description: Name of the column
+        type:
+          type: string
+          description: Data type of the column (e.g. VARCHAR, BIGINT, BOOLEAN)
+        isPrimaryKey:
+          type: boolean
+          description: Whether the column is a primary key
+        isHidden:
+          type: boolean
+          description: Whether the column is hidden from standard queries
 externalDocs:
   description: RisingWave Documentation
   url: https://docs.risingwave.com
