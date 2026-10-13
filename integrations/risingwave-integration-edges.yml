@@ -1,0 +1,19 @@
+edges:
+- partner_name: PostgreSQL
+  partner: postgresql
+  partner_match: shape-anchor
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  shape: postgres-wire
+  type: docs
+  degree: declared-unqualified
+  evidence: https://docs.risingwave.com/get-started/intro
+  evidence_kind: own-docs
+  evidence_file: https://github.com/api-evangelist/risingwave/blob/main/evidence/compatibility/risingwave-postgres-wire-1.md
+  quote: RisingWave is an event streaming platform for agentic AI. It unifies data ingestion, stream processing,
+    low-latency serving, and Iceberg lakehouse management in a single PostgreSQL-compatible system.
+  detected_by: sweep-shape-compat.py
+  first_seen: '2026-10-13'
+generated: '2026-10-13'
+method: searched

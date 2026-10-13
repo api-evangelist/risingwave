@@ -1,0 +1,13 @@
+fetched: '2026-10-13'
+method: fetched
+source: https://docs.risingwave.com/get-started/intro
+page: https://docs.risingwave.com/get-started/intro
+file: risingwave-postgres-wire-1.md
+bytes: 6588
+sha256: b7c1b93fa1cd36c0865d7a8943cf5bbf735b2ac26666e6b54c6b2d82e7724939
+anchor: postgresql
+shape: postgres-wire
+classification: declares-compatibility
+quote: RisingWave is an event streaming platform for agentic AI. It unifies data ingestion, stream processing, low-latency
+  serving, and Iceberg lakehouse management in a single PostgreSQL-compatible system.
+note: text extracted from the provider's own page (tags stripped), saved for evidence
